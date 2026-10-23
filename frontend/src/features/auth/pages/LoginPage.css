@@ -1,0 +1,562 @@
+/* ==========================================================================
+   Pilar Community College (PiCC) Login Page Styles
+   Theme: Navy Blue (#0c1e3d), Gold (#cda34f), Crisp White & Slate
+   ========================================================================== */
+
+:root {
+  --picc-navy-dark: #08142b;
+  --picc-navy: #0c1e3d;
+  --picc-navy-light: #18315b;
+  --picc-gold: #cda34f;
+  --picc-gold-hover: #b88f3b;
+  --picc-gold-light: #fef8eb;
+  --picc-slate-50: #f8fafc;
+  --picc-slate-100: #f1f5f9;
+  --picc-slate-200: #e2e8f0;
+  --picc-slate-400: #94a3b8;
+  --picc-slate-600: #475569;
+  --picc-slate-800: #1e293b;
+  --picc-danger: #dc2626;
+  --picc-danger-bg: #fef2f2;
+  --picc-success: #16a34a;
+  --picc-success-bg: #f0fdf4;
+}
+
+.login-page {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--picc-navy-dark) 0%, var(--picc-navy) 100%);
+  padding: 1.5rem;
+  box-sizing: border-box;
+}
+
+.login-shell {
+  display: flex;
+  width: 100%;
+  max-width: 1140px;
+  min-height: 680px;
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.45);
+}
+
+/* ==========================================================================
+   Left Hero Panel (Navy Branding & Announcements)
+   ========================================================================== */
+
+.login-hero {
+  position: relative;
+  flex: 1 1 50%;
+  background: linear-gradient(160deg, var(--picc-navy) 0%, var(--picc-navy-dark) 100%);
+  color: #ffffff;
+  padding: 3rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.hero-diagonal {
+  position: absolute;
+  top: -20%;
+  right: -20%;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(205, 163, 79, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-dot-pattern {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 20px 20px;
+  pointer-events: none;
+}
+
+.hero-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  z-index: 2;
+}
+
+.hero-brand-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(135deg, var(--picc-gold) 0%, #ecd08c 100%);
+  color: var(--picc-navy-dark);
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(205, 163, 79, 0.3);
+}
+
+.hero-brand-name {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  font-size: 0.95rem;
+}
+
+.hero-brand-name span:nth-child(2) {
+  color: var(--picc-gold);
+}
+
+.hero-tagline {
+  margin: 1.5rem 0 2rem;
+  font-size: 1.35rem;
+  letter-spacing: 0.12em;
+  color: #ffffff;
+  font-weight: 400;
+  z-index: 2;
+}
+
+.hero-tagline strong {
+  color: var(--picc-gold);
+  font-weight: 800;
+}
+
+/* Photo Collage */
+.photo-collage {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+  z-index: 2;
+}
+
+.collage-tile {
+  height: 95px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.collage-tile:hover {
+  transform: translateY(-2px);
+  border-color: rgba(205, 163, 79, 0.4);
+}
+
+.collage-photo {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Announcement Card */
+.announcement-card {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(205, 163, 79, 0.25);
+  border-radius: 14px;
+  padding: 1.25rem 1.5rem;
+  z-index: 2;
+  margin-bottom: 1.5rem;
+}
+
+.announcement-card h2 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--picc-gold);
+  margin: 0;
+  font-weight: 700;
+}
+
+.announcement-rule {
+  height: 2px;
+  width: 40px;
+  background: var(--picc-gold);
+  margin: 0.5rem 0 0.85rem;
+  border-radius: 2px;
+}
+
+.announcement-card p {
+  margin: 0.35rem 0;
+  font-size: 0.85rem;
+  color: var(--picc-slate-200);
+  line-height: 1.4;
+}
+
+.announcement-card strong {
+  color: #ffffff;
+}
+
+.hero-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: var(--picc-slate-400);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.25rem;
+  z-index: 2;
+}
+
+.hero-footer span,
+.hero-footer a {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--picc-slate-400);
+  text-decoration: none;
+}
+
+.hero-footer a:hover {
+  color: var(--picc-gold);
+}
+
+/* ==========================================================================
+   Right Panel (Interactive Login Form)
+   ========================================================================== */
+
+.login-panel {
+  flex: 1 1 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 3.5rem;
+  background: #ffffff;
+}
+
+.login-content {
+  width: 100%;
+  max-width: 420px;
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--picc-navy);
+  margin-bottom: 1.5rem;
+}
+
+.panel-brand-mark {
+  color: var(--picc-gold);
+}
+
+.login-heading h1 {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: var(--picc-navy);
+  margin: 0 0 0.4rem;
+  letter-spacing: -0.02em;
+}
+
+.login-heading h1 span {
+  color: var(--picc-gold);
+}
+
+.login-heading p {
+  font-size: 0.9rem;
+  color: var(--picc-slate-600);
+  margin: 0 0 1.75rem;
+}
+
+/* Mode Switch Tabs */
+.login-mode-switch {
+  display: flex;
+  background: var(--picc-slate-100);
+  border-radius: 10px;
+  padding: 4px;
+  gap: 4px;
+  margin-bottom: 1.75rem;
+}
+
+.mode-button {
+  flex: 1;
+  padding: 0.65rem 0.75rem;
+  border: none;
+  background: transparent;
+  color: var(--picc-slate-600);
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.mode-button.is-active {
+  background: #ffffff;
+  color: var(--picc-navy);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* Form Styles */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  text-align: left;
+}
+
+.form-field label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--picc-slate-800);
+}
+
+.input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-wrap svg {
+  position: absolute;
+  left: 12px;
+  color: var(--picc-slate-400);
+  pointer-events: none;
+}
+
+.input-wrap input {
+  width: 100%;
+  padding: 0.75rem 2.5rem 0.75rem 2.4rem;
+  border: 1.5px solid var(--picc-slate-200);
+  border-radius: 10px;
+  font-size: 0.9rem;
+  color: var(--picc-slate-800);
+  background: #ffffff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.input-wrap input:focus {
+  outline: none;
+  border-color: var(--picc-navy);
+  box-shadow: 0 0 0 3px rgba(12, 30, 61, 0.1);
+}
+
+.input-wrap input:disabled {
+  background: var(--picc-slate-50);
+  cursor: not-allowed;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  color: var(--picc-slate-400);
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.password-toggle:hover {
+  color: var(--picc-slate-800);
+}
+
+/* Form Options & Links */
+.form-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.82rem;
+}
+
+.remember-option {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--picc-slate-600);
+  cursor: pointer;
+}
+
+.remember-option input[type="checkbox"] {
+  accent-color: var(--picc-navy);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.recovery-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.2rem;
+}
+
+.text-link {
+  background: none;
+  border: none;
+  color: var(--picc-navy);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: none;
+}
+
+.text-link:hover {
+  color: var(--picc-gold);
+  text-decoration: underline;
+}
+
+.text-link--small {
+  font-size: 0.75rem;
+  color: var(--picc-slate-400);
+}
+
+/* Form Messages */
+.form-message {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  margin: 0;
+  text-align: left;
+}
+
+.form-message--error {
+  background: var(--picc-danger-bg);
+  border: 1px solid rgba(220, 38, 38, 0.25);
+  color: var(--picc-danger);
+}
+
+.form-message--success {
+  background: var(--picc-success-bg);
+  border: 1px solid rgba(22, 163, 74, 0.25);
+  color: var(--picc-success);
+}
+
+/* Buttons */
+.sign-in-button {
+  width: 100%;
+  padding: 0.85rem;
+  background: linear-gradient(135deg, var(--picc-navy) 0%, var(--picc-navy-light) 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 12px rgba(12, 30, 61, 0.2);
+}
+
+.sign-in-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(12, 30, 61, 0.3);
+}
+
+.sign-in-button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* Divider & Register CTA */
+.new-student-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.75rem 0 1.25rem;
+}
+
+.new-student-divider span {
+  flex: 1;
+  height: 1px;
+  background: var(--picc-slate-200);
+}
+
+.new-student-divider p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--picc-slate-400);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.register-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1rem;
+  border: 1.5px dashed var(--picc-gold);
+  background: var(--picc-gold-light);
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.register-cta:hover {
+  background: #fdf3d8;
+  border-color: var(--picc-gold-hover);
+  transform: translateY(-1px);
+}
+
+.register-cta span {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--picc-navy);
+}
+
+.register-cta strong {
+  font-size: 0.88rem;
+  color: var(--picc-navy-dark);
+  margin-top: 0.15rem;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+
+@media (max-width: 960px) {
+  .login-shell {
+    flex-direction: column;
+    max-width: 520px;
+  }
+  .login-hero {
+    padding: 2rem;
+  }
+  .login-panel {
+    padding: 2.5rem 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-page {
+    padding: 0.75rem;
+  }
+  .login-panel {
+    padding: 2rem 1.25rem;
+  }
+  .login-mode-switch {
+    flex-direction: column;
+  }
+}
