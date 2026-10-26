@@ -58,7 +58,8 @@ export default function CourseOfferingsPage() {
   }, [selectedTermId]);
 
   useEffect(() => {
-    loadOfferings().catch(() => { /* surfaced via setError inside loadOfferings() */ });
+    const run = async () => { await loadOfferings(); };
+    void run();
   }, [loadOfferings]);
 
   // Load versions when program changes

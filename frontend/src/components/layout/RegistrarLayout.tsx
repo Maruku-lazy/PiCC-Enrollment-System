@@ -8,7 +8,7 @@ import {
   CalendarDays,
   LogOut,
 } from 'lucide-react';
-import { useAuth } from '../../features/auth/context/AuthContext';
+import { useAuth } from '../../features/auth/context/useAuth';
 
 const NAV_ITEMS = [
   { to: '/registrar/dashboard', label: 'Dashboard', icon: LayoutDashboard },

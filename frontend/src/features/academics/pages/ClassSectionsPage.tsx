@@ -14,6 +14,8 @@ import { validateScheduleSlot, type ScheduleSlot } from '../services/scheduleVal
 import SectionCapacityBadge from '../components/SectionCapacityBadge';
 import ScheduleConflictAlert from '../components/ScheduleConflictAlert';
 
+type DayOfWeek = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat';
+
 const DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'] as const;
 
 export default function ClassSectionsPage() {
@@ -41,7 +43,7 @@ export default function ClassSectionsPage() {
 
   // Schedule form
   const [showScheduleForm, setShowScheduleForm] = useState(false);
-  const [schedDay, setSchedDay] = useState<string>('Mon');
+  const [schedDay, setSchedDay] = useState<DayOfWeek>('Mon');
   const [schedStart, setSchedStart] = useState('08:00');
   const [schedEnd, setSchedEnd] = useState('09:30');
   const [schedRoom, setSchedRoom] = useState('');
@@ -82,7 +84,8 @@ export default function ClassSectionsPage() {
   }, [selectedTermId]);
 
   useEffect(() => {
-    loadData().catch(() => { /* surfaced via setError inside loadData() */ });
+    const run = async () => { await loadData(); };
+    void run();
   }, [loadData]);
 
   // Load expanded section details
@@ -167,7 +170,7 @@ export default function ClassSectionsPage() {
 
     // Validate for conflicts
     const newSlot: ScheduleSlot = {
-      day_of_week: schedDay as any,
+      day_of_week: schedDay,
       start_time: schedStart,
       end_time: schedEnd,
       room: schedRoom.trim(),
@@ -177,7 +180,7 @@ export default function ClassSectionsPage() {
     const existingSlots: ScheduleSlot[] = allSchedulesForTerm
       .filter((s) => s.section_id !== expandedId)
       .map((s) => ({
-        day_of_week: s.day_of_week as any,
+        day_of_week: s.day_of_week as ScheduleSlot['day_of_week'],
         start_time: s.start_time,
         end_time: s.end_time,
         room: s.room,
@@ -196,7 +199,7 @@ export default function ClassSectionsPage() {
     try {
       await academicService.createSchedule({
         section_id: expandedId,
-        day_of_week: schedDay as any,
+        day_of_week: schedDay,
         start_time: schedStart,
         end_time: schedEnd,
         room: schedRoom.trim(),
@@ -393,7 +396,7 @@ export default function ClassSectionsPage() {
                           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr', gap: '0.5rem', marginBottom: '0.5rem' }}>
                             <div>
                               <label style={{ fontSize: '0.7rem', fontWeight: 600, color: '#475569' }}>Day</label>
-                              <select value={schedDay} onChange={(e) => setSchedDay(e.target.value)} style={{ ...inputStyle, fontSize: '0.78rem' }}>
+                              <select value={schedDay} onChange={(e) => setSchedDay(e.target.value as DayOfWeek)} style={{ ...inputStyle, fontSize: '0.78rem' }}>
                                 {DAYS.map((d) => <option key={d} value={d}>{d}</option>)}
                               </select>
                             </div>

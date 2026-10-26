@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { GraduationCap, CalendarDays, Layers, Calendar, ArrowRight } from 'lucide-react';
-import { useAuth } from '../../auth/context/AuthContext';
+import { useAuth } from '../../auth/context/useAuth';
 import { academicService, type AcademicProgram, type AcademicTerm } from '../../academics/services/academicService';
 
 export default function RegistrarDashboardPage() {
