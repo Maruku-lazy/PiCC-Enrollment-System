@@ -25,3 +25,16 @@ dist-ssr
 .env
 .env.*
 !.env.example
+
+# School documents and references
+docs/
+private-references/
+
+# Temporary files
+*.tmp
+*.bak
+
+# Local database exports
+*.sql.gz
+*.dump
+*.backup
